@@ -5,10 +5,10 @@ include_once '../entity/Pais.php';
 
 if(isset($_GET["acao"]))
 {
-    $nome_pais = $_POST["nome"];
-    $pais = new Cidade($nome_pais);
-    $paisDao = new PaisDao();
-    $paisDao->InserirCategoria($pais);
+   $nomePais = $_POST["nome"];
+   $pais = new Pais($nomePais,"");
+   $paisDao = new PaisDao();
+   $paisDao->InserirCategoria($pais);
 }
 
 ?>
@@ -29,11 +29,11 @@ if(isset($_GET["acao"]))
 <div class="container">
   <div class="jumbotron">
     <h1>Meu primeiro Bootstrap</h1>
-    <p>Testanto bootstrap!</p> 
+    <p>Testanto Pais!</p> 
   </div>
   <div class="row">
     <div class="col-sm-4">
-        <form method="post" action="TesteCidade.php?acao=ok">
+        <form method="post" action="TestePais.php?acao=ok">
 	    <label for="nome">Teste Sistema</label>
 	    <input type="text" name="nome"> <br/><br/>           
 	    <button type="submit">Gravar</button>    

@@ -3,28 +3,30 @@
 class Pais
 {
     private $idPais;
-    private $nomaPais;
+    private $nomePais;
 
-    public function __construct($idPais="", $nomePais = "") 
+    public function __construct($nomePais = "",$idPais = "") 
     {
     	$this->idPais = $idPais;
-        $this->nomaPais = $nomePais;    
+        $this->nomePais = $nomePais;    
     }
     
     function getIdPais() {
         return $this->idPais;
     }
 
-    function getNomaPais() {
-        return $this->nomaPais;
+    function getNomePais() {
+        return $this->nomePais;
     }
 
-    function setIdPais($idPais) {
-        $this->idPais = $idPais;
+    function setIdPais($idPais)
+    {
+        return $this->idPais = $idPais;
     }
 
-    function setNomaPais($nomaPais) {
-        $this->nomaPais = $nomaPais;
+    function setNomePais($nomePais)
+    {
+        return $this->nomePais = $nomePais;
     }
 
 

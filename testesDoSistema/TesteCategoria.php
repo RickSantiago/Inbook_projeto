@@ -1,14 +1,14 @@
 <?php
 include_once '../configs/PDOUtil.php';
-include_once '../dao/CidadeDao.php';
-include_once '../entity/Cidade.php';
+include_once '../dao/CategoriaDao.php';
+include_once '../entity/Categoria.php';
 
 if(isset($_GET["acao"]))
 {
-    $nomecidade = $_POST["nome"];
-    $cidade = new Cidade("", $nomecidade, "");
-    $cidadeDao = new CidadeDao();
-    $cidadeDao->InserirCategoria($cidade);
+   $nomeCategoria = $_POST["nome"];
+   $categoria = new Categoria($nomeCategoria,"");
+   $categoriaDao = new CategoriaDao();
+   $categoriaDao->InserirCategoria($categoria);
 }
 
 ?>
@@ -29,11 +29,11 @@ if(isset($_GET["acao"]))
 <div class="container">
   <div class="jumbotron">
     <h1>Meu primeiro Bootstrap</h1>
-    <p>Testanto Cidade!</p> 
+    <p>Testando Categoria</p> 
   </div>
   <div class="row">
     <div class="col-sm-4">
-        <form method="post" action="TesteCidade.php?acao=ok">
+        <form method="post" action="TesteCategoria.php?acao=ok">
 	    <label for="nome">Teste Sistema</label>
 	    <input type="text" name="nome"> <br/><br/>           
 	    <button type="submit">Gravar</button>    

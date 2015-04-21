@@ -13,28 +13,34 @@ class Cidade
                        
     }
     
-    function getIdCidade() {
+    function getIdCidade() 
+    {
         return $this->idCidade;
     }
 
-    function getNomeCidade() {
+    function getNomeCidade() 
+    {
         return $this->nomeCidade;
     }
     
-    function getIdEstado() {
+    function getIdEstado() 
+    {
         return $this->idEstado;
     }
 
-    function setIdEstado($idEstado) {
-        $this->idEstado = $idEstado;
+    function setIdEstado($idEstado) 
+    {
+       return $this->idEstado = $idEstado;
     }
 
-    function setIdCidade($idCidade) {
-        $this->idCidade = $idCidade;
+    function setIdCidade($idCidade) 
+    {
+       return $this->idCidade = $idCidade;
     }
 
-    function setNomeCidade($nomeCidade) {
-        $this->nomeCidade = $nomeCidade;
+    function setNomeCidade($nomeCidade) 
+    {
+       return $this->nomeCidade = $nomeCidade;
     }
 
 

@@ -1,5 +1,5 @@
 <?php
-require_once './Pais.php';
+require_once '../entity/Pais.php';
 class Estado
 {
     private $idEstado;
@@ -15,33 +15,41 @@ class Estado
         $this->idPais = $idPais;
     }
     
-    function getIdEstado() {
+    function getIdEstado() 
+    {
         return $this->idEstado;
     }
 
-    function getNomeEstado() {
+    function getNomeEstado() 
+    {
         return $this->nomeEstado;
     }
-    function getIdPais() {
+    function getIdPais() 
+    {
         return $this->idPais;
     }
-    function getUf() {
+    function getUf() 
+    {
         return $this->uf;
     }
-    function setIdPais($idPais) {
-        $this->idPais = $idPais;
+    function setIdPais($idPais) 
+    {
+        return $this->idPais = $idPais;
     }
 
-    function setIdEstado($idEstado) {
-        $this->idEstado = $idEstado;
+    function setIdEstado($idEstado)
+    {
+        return $this->idEstado = $idEstado;
     }
 
-    function setNomeEstado($nomeEstado) {
-        $this->nomeEstado = $nomeEstado;
+    function setNomeEstado($nomeEstado) 
+    {
+        return $this->nomeEstado = $nomeEstado;
     }
 
-    function setUf($uf) {
-        $this->uf = $uf;
+    function setUf($uf) 
+    {
+        return $this->uf = $uf;
     }
 
 

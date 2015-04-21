@@ -6,9 +6,9 @@ include_once '../configs/PDOUtil.php';
 if(isset($_GET["acao"])) 
     {
 	 	
-	$nome_estado = $_POST["nome"];
+	$nomeEstado = $_POST["nome"];
         $uf = $_POST["uf"];
-	$estado = new Estado($nome_estado, $uf);	
+	$estado = new Estado("", $nomeEstado, $uf, "");
 	$estadodao = new Estadodao();
 	$estadodao->inserirCategoria($estado);
         
@@ -47,7 +47,7 @@ if(isset($_GET["acao"]))
 <div class="container">
   <div class="jumbotron">
     <h1>Meu primeiro Bootstrap</h1>
-    <p>Testanto bootstrap!</p> 
+    <p>Testanto Estado!</p> 
   </div>
   <div class="row">
     <div class="col-sm-4">
