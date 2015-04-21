@@ -1,14 +1,14 @@
 <?php
 include_once '../configs/PDOUtil.php';
-include_once '../dao/CidadeDao.php';
-include_once '../entity/Cidade.php';
+include_once '../dao/ImagemDao.php';
+include_once '../entity/Imagem.php';
 
 if(isset($_GET["acao"]))
 {
-    $nomecidade = $_POST["nome"];
-    $cidade = new Cidade("", $nomecidade, "");
-    $cidadeDao = new CidadeDao();
-    $cidadeDao->InserirCategoria($cidade);
+   $nomeImagem = $_POST["nome"];
+   $imagem = new Imagem($nomeImagem);
+   $imagemDao = new ImagemDao();
+   $imagemDao->InserirCategoria($imagem);
 }
 
 ?>
@@ -28,12 +28,12 @@ if(isset($_GET["acao"]))
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Inserir Cidade</h1>
-    <p>Testanto Cidade!</p> 
+    <h1>Inserir Imagem</h1>
+    <p>Testanto Imagem!</p> 
   </div>
   <div class="row">
     <div class="col-sm-4">
-        <form method="post" action="TesteCidade.php?acao=ok">
+        <form method="post" action="TesteImagem.php?acao=ok">
 	    <label for="nome">Teste Sistema</label>
 	    <input type="text" name="nome"> <br/><br/>           
 	    <button type="submit">Gravar</button>    

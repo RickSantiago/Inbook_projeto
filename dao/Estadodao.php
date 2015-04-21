@@ -5,9 +5,10 @@ class Estadodao
         public function InserirCategoria(Estado $estado) 
         {
             $conexao = new PDOUtil();
-            $insert = $conexao->getStance()->prepare("INSERT INTO estado(nome_estado,uf) VALUES(:nome_estado,:uf)");
+            $insert = $conexao->getStance()->prepare("INSERT INTO estado(nome_estado,uf,id_pais) VALUES(:nome_estado,:uf, :id_pais)");
             $insert->bindValue(":nome_estado", $estado->getNomeEstado());
             $insert->bindValue(":uf", $estado->getUf());
+            $insert->bindValue(":id_pais", $estado->getIdPais());
             $insert->execute();
         }
         

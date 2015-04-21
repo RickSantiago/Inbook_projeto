@@ -28,7 +28,7 @@ if(isset($_GET["acao"]))
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Meu primeiro Bootstrap</h1>
+    <h1>Inserir Pais</h1>
     <p>Testanto Pais!</p> 
   </div>
   <div class="row">

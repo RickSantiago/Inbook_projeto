@@ -7,10 +7,11 @@ if(isset($_GET["acao"]))
     {
 	 	
 	$nomeEstado = $_POST["nome"];
-        $uf = $_POST["uf"];
+         $uf = $_POST["uf"];
 	$estado = new Estado("", $nomeEstado, $uf, "");
 	$estadodao = new Estadodao();
 	$estadodao->inserirCategoria($estado);
+        
         
         
     }
@@ -46,7 +47,7 @@ if(isset($_GET["acao"]))
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Meu primeiro Bootstrap</h1>
+    <h1>Inserir Estado</h1>
     <p>Testanto Estado!</p> 
   </div>
   <div class="row">
