@@ -2,31 +2,32 @@
 
 class Pais
 {
-    private $idpais;
-    private $nome_pais;
+    private $idPais;
+    private $nomaPais;
 
-    public function __construct($nome_pais) 
+    public function __construct($idPais="", $nomePais = "") 
     {
-        $this->nome_pais = $nome_pais;    
+    	$this->idPais = $idPais;
+        $this->nomaPais = $nomePais;    
     }
     
-    public function getIdpais()
-    {
-        return $this->idpais;
+    function getIdPais() {
+        return $this->idPais;
     }
-    public function setIdpais($idpais)
-    {
-        return $this->idpais = $idpais;
+
+    function getNomaPais() {
+        return $this->nomaPais;
     }
-   
-    public function getNome_pais()
-    {
-        return $this->nome_pais;
+
+    function setIdPais($idPais) {
+        $this->idPais = $idPais;
     }
-    public function setNomepais()
-    {
-        return $this->nome_pais = $nome_pais;
+
+    function setNomaPais($nomaPais) {
+        $this->nomaPais = $nomaPais;
     }
+
+
     
     
 }

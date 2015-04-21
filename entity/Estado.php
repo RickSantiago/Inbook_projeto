@@ -1,43 +1,49 @@
 <?php
-
+require_once './Pais.php';
 class Estado
 {
-    private $idestado;
-    private $nome_estado;
+    private $idEstado;
+    private $nomeEstado;
     private $uf;
+    private $idPais;
     
-    public function __construct($nome_estado, $uf) 
-    {
-        $this->nome_estado = $nome_estado;
+    public function __construct($idEstado = "", $nomeEstado = "", $uf = "", $idPais = "") 
+    {   
+        $this->idEstado = $idEstado;
+        $this->nomeEstado = $nomeEstado;
         $this->uf = $uf;
-        
+        $this->idPais = $idPais;
     }
     
-    public function getIdestado()
-    {
-        return $this->idestado;
+    function getIdEstado() {
+        return $this->idEstado;
     }
-    public function setIdestado($idestado)
-    {
-        return $this->idestado = $idestado;
+
+    function getNomeEstado() {
+        return $this->nomeEstado;
     }
-   
-    public function getNomeEstado()
-    {
-        return $this->nome_estado;
+    function getIdPais() {
+        return $this->idPais;
     }
-    public function setNomeEstado()
-    {
-        return $this->nome_estado = $nome_estado;
-    }
-    
-    public function getUf()
-    {
+    function getUf() {
         return $this->uf;
     }
-    public function setUf()
-    {
-        return $this->uf = $uf;
+    function setIdPais($idPais) {
+        $this->idPais = $idPais;
     }
+
+    function setIdEstado($idEstado) {
+        $this->idEstado = $idEstado;
+    }
+
+    function setNomeEstado($nomeEstado) {
+        $this->nomeEstado = $nomeEstado;
+    }
+
+    function setUf($uf) {
+        $this->uf = $uf;
+    }
+
+
 }
 

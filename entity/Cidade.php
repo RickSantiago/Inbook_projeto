@@ -1,33 +1,42 @@
 <?php
-    
 class Cidade
 {
-    private $idcidade;
-    private $nomecidade;
+    private $idCidade;
+    private $nomeCidade;
+    private $idEstado;
     
-    public function __construct($nomecidade)
+    public function __construct($idCidade = "" , $nomecidade = "",  $idEstado = "")
     {
-        $this->nomecidade = $nomecidade;     
-    }
-  public function getIdcidade()
-    {
-        return $this->idcidade;
-    }
-    public function setIdcidade($idcidade)
-    {
-        return $this->idcidade = $idcidade;
-    }
-   
-    public function getNomecidade()
-    {
-        return $this->nomecidade;
-    }
-    public function setNomecidade()
-    {
-        return $this->nomecidade = $nomecidade;
+        $this->idCidade = $idCidade;
+        $this->nomeCidade = $nomecidade;  
+        $this->idEstado = $idEstado;
+                       
     }
     
+    function getIdCidade() {
+        return $this->idCidade;
+    }
+
+    function getNomeCidade() {
+        return $this->nomeCidade;
+    }
+    
+    function getIdEstado() {
+        return $this->idEstado;
+    }
+
+    function setIdEstado($idEstado) {
+        $this->idEstado = $idEstado;
+    }
+
+    function setIdCidade($idCidade) {
+        $this->idCidade = $idCidade;
+    }
+
+    function setNomeCidade($nomeCidade) {
+        $this->nomeCidade = $nomeCidade;
+    }
 
 
-    
+ 
 }
