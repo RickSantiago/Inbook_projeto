@@ -8,7 +8,7 @@ if(isset($_GET["acao"]))
    $nomeImagem = $_POST["nome"];
    $imagem = new Imagem($nomeImagem);
    $imagemDao = new ImagemDao();
-   $imagemDao->InserirCategoria($imagem);
+   $imagemDao->InserirImagem($imagem);
 }
 
 ?>

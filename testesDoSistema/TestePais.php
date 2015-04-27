@@ -8,7 +8,8 @@ if(isset($_GET["acao"]))
    $nomePais = $_POST["nome"];
    $pais = new Pais($nomePais,"");
    $paisDao = new PaisDao();
-   $paisDao->InserirCategoria($pais);
+   $paisDao->InserirPais($pais);
+   
 }
 
 ?>

@@ -9,7 +9,10 @@ if(isset($_GET["acao"]))
     $autor = $_POST["autor"];
     $lancamento = $_POST["lancamento"];
     $descricao = $_POST["descricao"];
-    
+    $idPagina = $_POST["idpagina"];
+    $livro = new Livro("",$nomeLivro,$autor,$lancamento,$descricao,$idPagina);
+    $livroDao = new LivroDao();
+    $livroDao->InserirLivro($livro);
 }
 ?>
 <!DOCTYPE html>
@@ -37,8 +40,12 @@ if(isset($_GET["acao"]))
 	    <label for="nome">Teste Sistema</label>
 	    <input type="text" name="nome" autofocus="autofocus" placeholder="Nome do Livro"> <br/><br/>  
 	    <input type="text" name="autor" autofocus="autofocus" placeholder="Nome do autor"> <br/><br/>
-	    <input type="text" name="lancamento" autofocus="autofocus" placeholder="lancamento(aaaa-mm-dd)"> <br/><br/>
-	    <input type="text" name="descricao" autofocus="autofocus" placeholder="Descricao"> <br/><br/>         
+	    <input type="text" name="lancamento" autofocus="autofocus" placeholder="lancamento(aaaa-mm-dd)" maxlength="10" size="20"> <br/><br/>
+	    <input type="text" name="descricao" autofocus="autofocus" placeholder="Descrição" size="80"><br/><br/>
+	    <input type="number" name= "idpagina" autofocus="autofocus"><br/><br/>
+<!-- 	    <label name ="descricao">Descricao -->
+<!-- 	    <textarea rows="5" cols="120" name="descricao"></textarea></label> <br/><br/>          -->
+	   
 	    <button type="submit">Gravar</button>    
 	</form>
   </div>

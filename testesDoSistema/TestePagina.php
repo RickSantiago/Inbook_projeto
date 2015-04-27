@@ -1,22 +1,28 @@
 <?php
 include_once '../configs/PDOUtil.php';
-include_once '../dao/CidadeDao.php';
-include_once '../entity/Cidade.php';
+include_once '../dao/PaginaDao.php';
+include_once '../entity/Pagina.php';
+
 
 if(isset($_GET["acao"]))
 {
-    $nomecidade = $_POST["nome"];
-    $id_estado = $_POST["idestado"];
-    $cidade = new Cidade("", $nomecidade,$id_estado);
-    $cidadeDao = new CidadeDao();
-    $cidadeDao->InserirCidade($cidade);
+  $titulo = $_POST["titulo"];
+  $categoriaIdCategoria = $_POST["idcategoria"];
+  $pagina = new Pagina("",$titulo, $categoriaIdCategoria);
+  $paginaDao = new PaginaDao();
+  $paginaDao->InserirPagina($pagina);
+   
+}
+else 
+{
+	echo 'Erro favor verificar';
 }
 
 ?>
 
 <!DOCTYPE html>
 
-        <html lang="pt-br">
+<html lang="pt-br">
 <head>
   <title>Bootstrap Exemplo</title>
   <meta charset="utf-8">
@@ -29,15 +35,15 @@ if(isset($_GET["acao"]))
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Inserir Cidade</h1>
-    <p>Testanto Cidade!</p> 
+    <h1>Inserir Pagina</h1>
+    <p>Testanto Pagina!</p> 
   </div>
   <div class="row">
     <div class="col-sm-4">
-        <form method="post" action="TesteCidade.php?acao=ok">
+        <form method="post" action="TestePagina.php?acao=ok">
 	    <label for="nome">Teste Sistema</label>
-	    <input type="text" name="nome"> <br/><br/>  
-            <input type="number" name="idestado"> <br><br/>
+	    <input type="text" name="titulo"> <br/><br/> 
+	     <input type="number" name="idcategoria"> <br/><br/>          
 	    <button type="submit">Gravar</button>    
 	</form>
   </div>

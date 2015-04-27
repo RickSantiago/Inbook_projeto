@@ -2,7 +2,7 @@
 class PaisDao 
 {
 	
-        public function InserirCategoria(Pais $pais) 
+        public function InserirPais(Pais $pais) 
         {
             $conexao = new PDOUtil();
             $insert = $conexao->getStance()->prepare("INSERT INTO pais(nome_pais) VALUES(:nome_pais)");

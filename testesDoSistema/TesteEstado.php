@@ -6,14 +6,12 @@ include_once '../configs/PDOUtil.php';
 if(isset($_GET["acao"])) 
     {
 	 	
-	$nomeEstado = $_POST["nome"];
-         $uf = $_POST["uf"];
-	$estado = new Estado("", $nomeEstado, $uf, "");
-	$estadodao = new Estadodao();
-	$estadodao->inserirCategoria($estado);
-        
-        
-        
+		$nomeEstado = $_POST["nome"];
+		$uf = $_POST["uf"];
+        $idpais = $_POST["pais"];
+		$estado = new Estado("",$nomeEstado,$uf,$idpais);
+		$estadoDao = new Estadodao();
+		$estadoDao->InserirEstado($estado);
     }
 //    
 //    $result = $estadodao->selecionarCategoria($estado);
@@ -56,6 +54,7 @@ if(isset($_GET["acao"]))
 	    <label for="nome">Categoria Nome</label>
 	    <input type="text" name="nome"> <br/><br/> 
             <input type="text" name ="uf"><br/><br/>
+            <input type="number" name ="pais"><br/><br/>
 	    <button type="submit">Gravar</button>    
 	</form>
   </div>

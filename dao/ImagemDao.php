@@ -2,7 +2,7 @@
 class ImagemDao 
 {
 	
-        public function InserirCategoria(Imagem $imagem) 
+        public function InserirImagem(Imagem $imagem) 
         {
             $conexao = new PDOUtil();
             $insert = $conexao->getStance()->prepare("INSERT INTO imagem(imagem) VALUES(:imagem)");

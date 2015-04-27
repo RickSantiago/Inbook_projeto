@@ -1,5 +1,6 @@
 <?php
-//require_once '../entity/Estado.php';
+require_once '../entity/Estado.php';
+
 class Cidade
 {
     private $idCidade;
