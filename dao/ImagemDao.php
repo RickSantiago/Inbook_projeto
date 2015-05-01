@@ -9,6 +9,25 @@ class ImagemDao
             $insert->bindValue(":imagem", $imagem->getImagem());          
             $insert->execute();
         }
+        public function selecionarImagem(Imagem $imagem)
+        {
+            $conexao = new PDOUtil();
+            $select = $conexao->getStance()->prepare("SELECT nome_imagem FROM imagem ORDER BY :nome_imagem ");
+            $select->execute();
+        }
+        public function deletarImagem(Imagem $imagem) 
+        {
+            $conexao = new PDOUtil();
+            $delete = $conexao->getStance()->prepare("DELETE FROM imagem WHERE nome_imagem = '?'");
+            $delete->execute();
+        }
+        public function updateImagem(Imagem $imagem)
+        {
+            $conexao = new PDOUtil();
+            $update = $conexao->getStance()->prepare("UPDATE imagem SET 'nome_imagem' = '?' WHERE 'idimagem'='?'");
+            $update->execute();
+            
+        }
         
 
 }

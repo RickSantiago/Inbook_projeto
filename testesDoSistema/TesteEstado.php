@@ -8,7 +8,7 @@ if(isset($_GET["acao"]))
 	 	
 		$nomeEstado = $_POST["nome"];
 		$uf = $_POST["uf"];
-        $idpais = $_POST["pais"];
+                $idpais = $_POST["pais"];
 		$estado = new Estado("",$nomeEstado,$uf,$idpais);
 		$estadoDao = new Estadodao();
 		$estadoDao->InserirEstado($estado);

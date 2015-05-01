@@ -13,6 +13,7 @@ class Imagem
 	{
 		$this->idImagem = $idImagem;
 		$this->nomeImagem = $nomeImagem;
+		
 		$this->livroIdLivro = $livroIdLivro;
 	}
 	function getIdImagem() {

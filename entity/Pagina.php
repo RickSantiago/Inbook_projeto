@@ -10,6 +10,7 @@ class Pagina
     {
        $this->idPagina = $idPagina;
        $this->titulo = $titulo;
+       
        $this->categoriaIdCategoria = $categoriaIdCategoria;
     }
     function getIdPagina() {

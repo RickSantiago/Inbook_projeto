@@ -16,4 +16,22 @@ class LivroDao
 		
 		$insert->execute();
 	}
+        public function selecionarLivro(Livro $livro)
+        {
+            $conexao = new PDOUtil();
+            $select = $conexao->getStance()->prepare("SELECT nome_livro FROM livro ORDER BY :nome_livro ");
+            $select->execute();
+        }
+        public function deletarLivro(Livro $livro) 
+        {
+            $conexao = new PDOUtil();
+            $delete = $conexao->getStance()->prepare("DELETE FROM livro WHERE nome_livro = '?'");
+            $delete->execute();
+        }
+        public function updateLivro(Livro $livro)
+        {
+            $conexao = new PDOUtil();
+            $update = $conexao->getStance()->prepare("UPDATE livro SET 'nome_livro' = '?' WHERE 'idlivro'='?'");
+            $update->execute();
+        }
 }

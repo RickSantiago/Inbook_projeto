@@ -9,8 +9,10 @@ if(isset($_GET["acao"]))
 	$cpf = $_POST["cpf"];
 	$email = $_POST["email"];
 	$nascimento = $_POST["nascimento"];
+        
 	$senha = $_POST["senha"];
-	$cidadeIdCidade = $_POST["cidadeIdCidade"];
+
+	//$cidadeIdCidade = $_POST["cidadeIdCidade"];
 	$usuario = new Usuario("",$nomePessoa,$cpf,$email,$nascimento,$senha,$cidadeIdCidade);
 	$usuarioDao = new UsuarioDao();
 	$usuarioDao->InserirUsuario($usuario);
@@ -43,8 +45,16 @@ if(isset($_GET["acao"]))
 	    <input type="text" name="cpf" autofocus="autofocus" placeholder="CPF: 00000000000" maxlength="11"> <br/><br/>
 	    <input type="text" name="nascimento" autofocus="autofocus" placeholder="Nascimento(aaaa-mm-dd)" size="30"> <br/><br/>
 	    <input type="password" name="senha" autofocus="autofocus" placeholder="Senha" size="20"><br/><br/>
-	    <input type="text" name="email" autofocus="autofocus" placeholder="Email" size="40"><br/><br/>
-	    <input type="number" name= "cidadeIdCidade" autofocus="autofocus" placeholder="id Cidade"><br/><br/>
+            <input type="email" name="email" autofocus="autofocus" placeholder="Email" size="40"><br/><br/>
+            
+<!--            <select name="sexo"required="" id="sexo">
+            <option value="select">Sexo...</option>
+            <option value="m">Homem</option>
+            <option value="f">Mulher</option>
+            <option value="others">Indeciso</option>
+            </select><br><br>-->
+	    
+            <input type="number" name= "cidadeIdCidade" autofocus="autofocus" placeholder="id Cidade"><br/><br/>
 <!-- 	    <label name ="descricao">Descricao -->
 <!-- 	    <textarea rows="5" cols="120" name="descricao"></textarea></label> <br/><br/>          -->
 	   

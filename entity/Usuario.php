@@ -7,7 +7,7 @@ class Usuario
 	private $email;
 	private $nascimento;
 	private $senha;
-	private $cidadeIdCidade;
+        private $cidadeIdCidade;
 	
 	public function __construct($idusuario = "", $nomePessoa = "", $cpf = "", $email = "", $nascimento = "", $senha = "", $cidadeIdCidade = "" )
 	{
@@ -17,6 +17,7 @@ class Usuario
 		$this->email = $email;
 		$this->nascimento = $nascimento;
 		$this->senha = $senha;
+              
 		$this->cidadeIdCidade = $cidadeIdCidade;
 	}
         
@@ -49,6 +50,7 @@ public function getSenha()
 {
 return $this->senha;
 }
+
 
 public function getCidadeIdCidade() 
 {
@@ -84,6 +86,7 @@ public function setSenha($senha)
  {
 $this->senha = $senha;
 }
+
 
 public function setCidadeIdCidade($cidadeIdCidade) 
 {

@@ -8,5 +8,25 @@ class CategoriaDao
             $insert->bindValue(":nome_categoria", $categoria->getNomeCategoria());          
             $insert->execute();
         }
+         public function selecionarCategoria(Categoria $categoria)
+        {
+            $conexao = new PDOUtil();
+            $select = $conexao->getStance()->prepare("SELECT nome_categoria FROM categoria ORDER BY :nome_categoria ");
+            $select->execute();
+        }
+        public function deletarCategoria(Categoria $categoria) 
+        {
+            $conexao = new PDOUtil();
+            $delete = $conexao->getStance()->prepare("DELETE FROM categoria WHERE nome_categoria = '?'");
+            $delete->execute();
+        }
+        public function updateCategoria(Categoria $categoria)
+        {
+            $conexao = new PDOUtil();
+            $update = $conexao->getStance()->prepare("UPDATE categoria SET 'nome_categoria' = '?' WHERE 'idcategoria'='?'");
+            $update->execute();
+            
+        }
+
 }
 

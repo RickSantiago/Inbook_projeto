@@ -14,7 +14,27 @@ class UsuarioDao
 		$insert->bindValue(":nascimento", $usuario->getNascimento());
 		$insert->bindValue(":senha", $usuario->getSenha());
 		$insert->bindValue(":cidade_id_cidade", $usuario->getCidadeIdCidade());
+                
 		
 		$insert->execute();
 	}
+        public function selecionarPagina(Usuario $usuario)
+        {
+            $conexao = new PDOUtil();
+            $select = $conexao->getStance()->prepare("SELECT nome_usuario FROM usuario ORDER BY :nome_usuario ");
+            $select->execute();
+        }
+        public function deletarImagem(Usuario $usuario) 
+        {
+            $conexao = new PDOUtil();
+            $delete = $conexao->getStance()->prepare("DELETE FROM usuario WHERE nome_usuario = '?'");
+            $delete->execute();
+        }
+        public function updateImagem(Usuario $usuario)
+        {
+            $conexao = new PDOUtil();
+            $update = $conexao->getStance()->prepare("UPDATE usuario SET 'nome_usuario' = '?' WHERE 'idusuario'='?'");
+            $update->execute();
+            
+        }
 }
