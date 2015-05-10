@@ -16,7 +16,8 @@ class Livro
 		$this->lancamento = $lancamento;
 		$this->descricao = $descricao;
 		
-		$this->idPagina = $idPagina;
+		$pagina = new Pagina($idPagina,'','','','','');
+                $this->idPagina = $pagina->getIdPagina();
 	}
 	function getIdLivro()
         {

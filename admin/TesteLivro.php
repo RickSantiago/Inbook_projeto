@@ -5,12 +5,14 @@ include_once '../entity/Livro.php';
 
 if(isset($_GET["acao"]))
 {
-    $nomeLivro = $_POST["nome"];
-    $autor = $_POST["autor"];
-    $lancamento = $_POST["lancamento"];
-    $descricao = $_POST["descricao"];
-    $idPagina = $_POST["idpagina"];
-    $livro = new Livro("",$nomeLivro,$autor,$lancamento,$descricao,$idPagina);
+    $livro = new Livro();
+    
+    $livro->setNomeLivro($_POST["nome"]);
+    $livro->setAutor($_POST["autor"]);
+    $livro->setLancamento($_POST["lancamento"]);
+    $livro->setDescricao($_POST["descricao"]);
+    $livro->setIdPagina($_POST["idpagina"]);
+    
     $livroDao = new LivroDao();
     $livroDao->InserirLivro($livro);
 }
@@ -20,7 +22,7 @@ if(isset($_GET["acao"]))
 <html lang="pt-br">
 <head>
 
-  <title>Bootstrap Exemplo</title>
+  <title>Livro</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -41,13 +43,16 @@ if(isset($_GET["acao"]))
 	    <input type="text" name="nome" autofocus="autofocus" placeholder="Nome do Livro"> <br/><br/>  
 	    <input type="text" name="autor" autofocus="autofocus" placeholder="Nome do autor"> <br/><br/>
 	    <input type="text" name="lancamento" autofocus="autofocus" placeholder="lancamento(aaaa-mm-dd)" maxlength="10" size="20"> <br/><br/>
-	    <input type="text" name="descricao" autofocus="autofocus" placeholder="Descrição" size="80"><br/><br/>
-	    <input type="number" name= "idpagina" autofocus="autofocus"><br/><br/>
+	    <input type="text" name="descricao" autofocus="autofocus" placeholder="Descriï¿½ï¿½o" size="80"><br/><br/>
+            <input type="number" name= "idpagina" autofocus="autofocus" placeholder="idPagina"><br/><br/>
 <!-- 	    <label name ="descricao">Descricao -->
 <!-- 	    <textarea rows="5" cols="120" name="descricao"></textarea></label> <br/><br/>          -->
 	   
 	    <button type="submit">Gravar</button>    
 	</form>
+         </br></br>
+    <a href="../testesDoSistema/TesteGeral.php">
+        <input type="submit" name="testeGeral" title="Geral" id="testePais" autofocus="" value="Teste Geral"></a></br></br>
   </div>
 </div>
 

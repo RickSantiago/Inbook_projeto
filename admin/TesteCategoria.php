@@ -5,19 +5,20 @@ include_once '../entity/Categoria.php';
 
 if(isset($_GET["acao"]))
 {
-   $nomeCategoria = $_POST["nome"];
-   $categoria = new Categoria($nomeCategoria,"");
+    $categoria = new Categoria();
+    $categoria->setNomeCategoria($_POST["nome_categoria"]);
+   
+   
    $categoriaDao = new CategoriaDao();
    $categoriaDao->InserirCategoria($categoria);
 }
-
 ?>
-
+<?php include("../admin/index.html"); ?>
 <!DOCTYPE html>
 
         <html lang="pt-br">
 <head>
-  <title>Bootstrap Exemplo</title>
+  <title>Categoria</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -25,7 +26,8 @@ if(isset($_GET["acao"]))
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+ <div id="header">
+	</div>
 <div class="container">
   <div class="jumbotron">
     <h1>Categoria do Livro</h1>
@@ -34,12 +36,14 @@ if(isset($_GET["acao"]))
   <div class="row">
     <div class="col-sm-4">
         <form method="post" action="TesteCategoria.php?acao=ok">
-	    <label for="nome">Teste Sistema</label>
-	    <input type="text" name="nome"> <br/><br/>           
+	    <label for="nome_categoria">Teste Categoria</label>
+	    <input type="text" name="nome_categoria"> <br/><br/>           
 	    <button type="submit">Gravar</button>    
+            
 	</form>
+         </br></br>
+    <a href="../testesDoSistema/TesteGeral.php">
+        <input type="submit" name="testeGeral" title="Geral" id="testePais" autofocus="" value="Teste Geral"></a></br></br>
   </div>
 </div>
-
-</body>
-</html>
+<?php include("../admin/Footer.php"); ?>

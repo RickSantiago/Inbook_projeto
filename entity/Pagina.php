@@ -11,7 +11,8 @@ class Pagina
        $this->idPagina = $idPagina;
        $this->titulo = $titulo;
        
-       $this->categoriaIdCategoria = $categoriaIdCategoria;
+      $categoria  = new Categoria($categoriaIdCategoria,'','');
+      $this->categoriaIdCategoria = $categoria->getIdCategoria();
     }
     function getIdPagina() {
         return $this->idPagina;

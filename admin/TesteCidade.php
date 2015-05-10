@@ -4,47 +4,35 @@ include_once '../dao/CidadeDao.php';
 include_once '../entity/Cidade.php';
 
 if(isset($_GET["acao"]))
-{
-    $nomecidade = $_POST["nomecidade"];
-    $id_estado = $_POST["id_estado"];
-    $cidade = new Cidade("", $nomecidade,$id_estado);
-    $cidadeDao = new CidadeDao();
-    $cidadeDao->InserirCidade($cidade);
-}
-
-?>
-
-<?php
-include_once '../configs/PDOUtil.php';
-include_once '../dao/CidadeDao.php';
-include_once '../entity/Cidade.php';
-
+        {
+              $cidade     = new Cidade();
+    
+              $cidade->setNomeCidade($_POST["nomecidade"]);
+              $cidade->setIdEstado($_POST["id_estado"]);
+ 
+              $cidadeDao  = new CidadeDao();    
+              $cidadeDao->InserirCidade($cidade);
+        }
 if(isset($_GET["acao1"]))
-{
-    $nomecidade = $_POST["nomecidade"];
-    $cidade = new Cidade("", $nomecidade);
-    $cidadeDao = new CidadeDao();
-    $cidadeDao->deletarCidade($cidade);
-}
-?>
-
-<?php
-include_once '../configs/PDOUtil.php';
-include_once '../dao/CidadeDao.php';
-include_once '../entity/Cidade.php';
-
+        {
+             $cidade      = new Cidade();
+    
+             $cidade->setNomeCidade($_POST["nomecidade"]);
+    
+             $cidadeDao   = new CidadeDao();
+             $cidadeDao->deletarCidade($cidade);
+        }
 if(isset($_GET["acao2"]))
-{
-
-    $cidadeDao = new CidadeDao();
-    $cidadeDao->listarCidade();
-}
+        {
+             $cidadeDao   = new CidadeDao();
+             $cidadeDao->listarCidade();
+        }
 ?>
 <!DOCTYPE html>
 
         <html lang="pt-br">
 <head>
-  <title>Bootstrap Exemplo</title>
+  <title>Cidade</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -62,8 +50,8 @@ if(isset($_GET["acao2"]))
   <div class="row">
     <div class="col-sm-4">
         <form method="post" action="TesteCidade.php?acao=ok">
-            <label for="nomecidade">Teste Sistema</label></br></br>
-	    <input type="text" name="nomecidade"> <br/><br/>  
+            <label for="nomecidade">Inserir Cidade</label></br></br>
+            Cidade:  <input type="text" name="nomecidade" placeholder="Cidade"> <br/><br/>  
             Estado:<select id="id_estado" name="id_estado" >           
             <option value="">Selecione...</option>
                   <option value="1">Acre</option>
@@ -99,19 +87,21 @@ if(isset($_GET["acao2"]))
 	</form>
  <----------------------------------------------------------------------------->       
         <form method="post" action="TesteCidade.php?acao1=ok">
-            <label for="nomecidade">Teste Sistema</label></br></br>
-	    <input type="text" name="nomecidade"> <br/><br/>  
+            <label for="nomecidade">Deletar Cidade</label></br></br>
+            <input type="text" name="nomecidade" placeholder="Cidade"> <br/><br/>  
             
 	    <button type="submit">Deletar</button>    
 	</form>
         
  <----------------------------------------------------------------------------->
   <form method="post" action="TesteCidade.php?acao2=ok">
-            <label for="listar">Teste Sistema</label></br></br>
+            <label for="listar">Mostrar Cidade</label></br></br>
          	    <button type="submit">Listar</button>    
 	</form>
  <----------------------------------------------------------------------------->
- 
+  </br></br>
+    <a href="../testesDoSistema/TesteGeral.php">
+        <input type="submit" name="testeGeral" title="Geral" id="testePais" autofocus="" value="Teste Geral"></a></br></br>
   </div>
 </div>
     </pre>

@@ -13,9 +13,11 @@ class Estado
         $this->idEstado = $idEstado;
         $this->nomeEstado = $nomeEstado;
         $this->uf = $uf;
+        //$this->idPais = $idPais;
         
         $pais = new Pais($idPais,'');
         $this->idPais = $pais->getIdPais();
+       
     }
     
     function getIdEstado() 

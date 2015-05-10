@@ -14,8 +14,11 @@ class Imagem
 		$this->idImagem = $idImagem;
 		$this->nomeImagem = $nomeImagem;
 		
-		$this->livroIdLivro = $livroIdLivro;
-	}
+		$livro = new Livro($livroIdLivro,'','','','','');
+                $this->livroIdLivro = $livro->getIdLivro();
+    
+        }
+        
 	function getIdImagem() {
             return $this->idImagem;
         }

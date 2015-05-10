@@ -13,23 +13,23 @@ class CidadeDao
      public function selecionarCidade(Cidade $cidade)
         {
             $conexao = new PDOUtil();
-            $select = $conexao->getStance()->prepare("SELECT nome_cidade FROM cidade ORDER BY nome_cidade ");
+            $select = $conexao->getStance()->prepare("SELECT nome_cidade,uf FROM cidade ORDER BY nome_cidade ");
             $select->execute();
         }
         public function deletarCidade(Cidade $cidade) 
         {
             $conexao = new PDOUtil();
-            $delete = $conexao->getStance()->prepare("DELETE FROM cidade WHERE 'nome_cidade' = 'AAAtest'");
+            $delete = $conexao->getStance()->prepare("DELETE FROM cidade WHERE nome_cidade = 'Lagoa Azul'");
             $delete->execute();
         }
         public function updateCidade(Cidade $cidade)
         {
             $conexao = new PDOUtil();
-            $update = $conexao->getStance()->prepare("UPDATE cidade SET 'nome_cidade' = '?' WHERE 'nome_cidade'='?'");
+            $update = $conexao->getStance()->prepare("UPDATE cidade SET 'nome_cidade' = 'AAAteste' WHERE 'idcidade'='?'");
             $update->execute();
             
         }
-        public function listarCidade()
+         public function listarCidade()
 	{
 		$conexao = new PDOUtil();
 		
@@ -39,9 +39,7 @@ class CidadeDao
     	{
         	echo $res["nome_cidade"]."<br/>";
     	}
-    
-	
-	}
+        }
 
 }
 

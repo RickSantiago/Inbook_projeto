@@ -2,6 +2,7 @@
 require_once '../entity/Estado.php';
 include_once '../entity/Estado.php';
 
+
 class Cidade
 {
     private $idCidade;
@@ -12,7 +13,7 @@ class Cidade
     {
         $this->idCidade = $idCidade;
         $this->nomeCidade = $nomecidade;  
-        $this->idEstado = $idEstado;
+        
         
         $estado = new Estado($idEstado,'','');
         $this->idEstado = $estado->getIdEstado();

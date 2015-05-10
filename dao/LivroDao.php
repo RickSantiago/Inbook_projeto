@@ -34,4 +34,15 @@ class LivroDao
             $update = $conexao->getStance()->prepare("UPDATE livro SET 'nome_livro' = '?' WHERE 'idlivro'='?'");
             $update->execute();
         }
+        public function listarLivro()
+	{
+		$conexao = new PDOUtil();
+		
+		$listar = $conexao->getStance()->prepare("SELECT nome_livro FROM livro");
+		$listar->execute();
+		while ($res = $listar->fetch())
+    	{
+        	echo $res["nome_livro"]."<br/>";
+    	}
+        }
 }

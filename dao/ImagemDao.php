@@ -28,6 +28,17 @@ class ImagemDao
             $update->execute();
             
         }
+        public function listarImagem()
+	{
+		$conexao = new PDOUtil();
+		
+		$listar = $conexao->getStance()->prepare("SELECT imagem FROM imagem");
+		$listar->execute();
+		while ($res = $listar->fetch())
+    	{
+        	echo $res["imagem"]."<br/>";
+    	}
+        }
         
 
 }

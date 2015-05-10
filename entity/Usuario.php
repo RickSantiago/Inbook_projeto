@@ -1,4 +1,7 @@
 <?php
+require_once '../entity/Estado.php';
+include_once '../entity/Estado.php';
+
 class Usuario
 {
 	private $idusuario;
@@ -7,9 +10,9 @@ class Usuario
 	private $email;
 	private $nascimento;
 	private $senha;
-        private $cidadeIdCidade;
+        private $idEstado;
 	
-	public function __construct($idusuario = "", $nomePessoa = "", $cpf = "", $email = "", $nascimento = "", $senha = "", $cidadeIdCidade = "" )
+	public function __construct($idusuario = "", $nomePessoa = "", $cpf = "", $email = "", $nascimento = "", $senha = "", $idEstado = "" )
 	{
 		$this->idusuario = $idusuario;
 		$this->nomePessoa = $nomePessoa;
@@ -17,8 +20,10 @@ class Usuario
 		$this->email = $email;
 		$this->nascimento = $nascimento;
 		$this->senha = $senha;
-              
-		$this->cidadeIdCidade = $cidadeIdCidade;
+
+                $estado         = new Estado($idEstado,'','');
+                $this->idEstado = $estado->getIdEstado();
+//                $this->idEstado = $idEstado;
 	}
         
 public function getIdusuario() 
@@ -83,15 +88,21 @@ $this->nascimento = $nascimento;
 }
 
 public function setSenha($senha)
- {
-$this->senha = $senha;
-}
+    {
+        $this->senha = $senha;
+    }
+public function getIdEstado() 
+    {
+        return $this->idEstado;
+    }
 
+public function setIdEstado($idEstado) 
+    {
+       return $this->idEstado = $idEstado;
+    }
 
 public function setCidadeIdCidade($cidadeIdCidade) 
 {
 $this->cidadeIdCidade = $cidadeIdCidade;
 }
 }
-
-

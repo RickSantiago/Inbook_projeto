@@ -30,5 +30,16 @@ class PaginaDao
             $update->execute();
             
         }
+        public function listarPagina()
+	{
+		$conexao = new PDOUtil();
+		
+		$listar = $conexao->getStance()->prepare("SELECT titulo FROM pagina");
+		$listar->execute();
+		while ($res = $listar->fetch())
+    	{
+        	echo $res["titulo"]."<br/>";
+    	}
+        }
 }
 

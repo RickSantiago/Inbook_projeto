@@ -12,24 +12,35 @@ class Estadodao
             $insert->execute();
         }
         
-        public function selecionarCategoria(Estado $estado)
+        public function selecionarEstado(Estado $estado)
         {
             $conexao = new PDOUtil();
             $select = $conexao->getStance()->prepare("SELECT nome_estado,uf FROM estado ORDER BY nome_estado ");
             $select->execute();
         }
-        public function deletarCategoria(Estado $estado) 
+        public function deletarEstado(Estado $estado) 
         {
             $conexao = new PDOUtil();
             $delete = $conexao->getStance()->prepare("DELETE FROM estado WHERE nome_estado = '?'");
             $delete->execute();
         }
-        public function updateCategoria(Estado $estado)
+        public function updateEstado(Estado $estado)
         {
             $conexao = new PDOUtil();
             $update = $conexao->getStance()->prepare("UPDATE estado SET 'nome_estado' = '?', 'uf' = '?' WHERE 'idestado'='2'");
             $update->execute();
             
+        }
+        public function listarEstado()
+	{
+		$conexao = new PDOUtil();
+		
+		$listar = $conexao->getStance()->prepare("SELECT nome_estado FROM estado");
+		$listar->execute();
+		while ($res = $listar->fetch())
+    	{
+        	echo $res["nome_estado"]."<br/>";
+    	}
         }
 
 }

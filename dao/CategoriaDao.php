@@ -27,6 +27,17 @@ class CategoriaDao
             $update->execute();
             
         }
+        public function listarCategoria()
+	{
+		$conexao = new PDOUtil();
+		
+		$listar = $conexao->getStance()->prepare("SELECT nome_categoria FROM categoria");
+		$listar->execute();
+		while ($res = $listar->fetch())
+    	{
+        	echo $res["nome_categoria"]."<br/>";
+    	}
+        }
 
 }
 
