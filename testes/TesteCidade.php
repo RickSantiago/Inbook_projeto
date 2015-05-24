@@ -49,7 +49,7 @@ if(isset($_GET["acao2"]))
    
   <div class="row">
     <div class="col-sm-4">
-        <form method="post" action="TesteCidade.php?acao=ok">
+        <form method="post" action="Cidade.php?acao=ok">
             <label for="nomecidade">Inserir Cidade</label></br></br>
             Cidade:  <input type="text" name="nomecidade" placeholder="Cidade"> <br/><br/>  
             Estado:<select id="id_estado" name="id_estado" >           
@@ -78,7 +78,7 @@ if(isset($_GET["acao2"]))
                   <option value="21">Rondonia</option>
                   <option value="22">Roraima</option>
                   <option value="24">Santa Catarina</option>
-                  <option value="26" >Sao Paulo</option
+                  <option value="26" >Sao Paulo</option>
                   <option value="25">Sergipe</option>
                   <option value="27">Tocantins</option>
 
@@ -86,7 +86,7 @@ if(isset($_GET["acao2"]))
 	    <button type="submit">Inserir</button>    
 	</form>
  <----------------------------------------------------------------------------->       
-        <form method="post" action="TesteCidade.php?acao1=ok">
+        <form method="post" action="Cidade.php?acao1=ok">
             <label for="nomecidade">Deletar Cidade</label></br></br>
             <input type="text" name="nomecidade" placeholder="Cidade"> <br/><br/>  
             
@@ -94,13 +94,13 @@ if(isset($_GET["acao2"]))
 	</form>
         
  <----------------------------------------------------------------------------->
-  <form method="post" action="TesteCidade.php?acao2=ok">
+  <form method="post" action="Cidade.php?acao2=ok">
             <label for="listar">Mostrar Cidade</label></br></br>
          	    <button type="submit">Listar</button>    
 	</form>
  <----------------------------------------------------------------------------->
   </br></br>
-    <a href="../testesDoSistema/TesteGeral.php">
+    <a href="../testesDoSistema/Geral.php">
         <input type="submit" name="testeGeral" title="Geral" id="testePais" autofocus="" value="Teste Geral"></a></br></br>
   </div>
 </div>

@@ -5,14 +5,15 @@ class LivroDao
 	{
 		$conexao = new PDOUtil();
 		
-		$insert = $conexao->getStance()->prepare("INSERT INTO livro(nome_livro,autor,lancamento,descricao,id_pagina) 
-				VALUES(:nome_livro,:autor,:lancamento,:descricao,:id_pagina)");
+		$insert = $conexao->getStance()->prepare("INSERT INTO livro(nome_livro,autor,lancamento,descricao,imagem,id_categoria) 
+				VALUES(:nome_livro,:autor,:lancamento,:descricao,:imagem,:id_categoria)");
 		
 		$insert->bindValue(":nome_livro", $livro->getNomeLivro());
 		$insert->bindValue(":autor", $livro->getAutor());
 		$insert->bindValue(":lancamento", $livro->getLancamento());
 		$insert->bindValue(":descricao", $livro->getDescricao());
-		$insert->bindValue(":id_pagina", $livro->getIdPagina());
+		$insert->bindValue(":imagem", $livro->getImagemLivro());
+                $insert->bindValue(":id_categoria", $livro->getIdCategoria());
 		
 		$insert->execute();
 	}
@@ -38,11 +39,12 @@ class LivroDao
 	{
 		$conexao = new PDOUtil();
 		
-		$listar = $conexao->getStance()->prepare("SELECT nome_livro FROM livro");
+		$listar = $conexao->getStance()->prepare("SELECT * FROM livro");
 		$listar->execute();
-		while ($res = $listar->fetch())
+		while ($res = $listar->fetch(PDO::FETCH_OBJ))
     	{
-        	echo $res["nome_livro"]."<br/>";
+        	echo "</br></br>".print_r($res);
+               
     	}
         }
 }

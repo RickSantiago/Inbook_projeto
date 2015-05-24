@@ -15,7 +15,6 @@ class UsuarioDao
 		$insert->bindValue(":nascimento", $usuario->getNascimento());
 		$insert->bindValue(":senha", $usuario->getSenha());
 		$insert->bindValue(":id_estado", $usuario->getIdEstado());
- 
 		$insert->execute();
 	}
         public function selecionarUsuario(Usuario $usuario)
@@ -51,18 +50,29 @@ class UsuarioDao
     	}
         
         }
-        public function loginUsuario(Usuario $usuario)
+        public function loginUsuario($email, $senha)
         {
             $conexao = new PDOUtil();
             
-            $login = $conexao->getStance()->prepare("SELECT email,senha FROM usuario WHERE email = '' AND senha = '' ");
+            $login = $conexao->getStance()->prepare("SELECT * FROM usuario WHERE email = '".$email."' AND 
+                   senha= '".$senha."' ");
+            
             $login->execute();
-            while ($res = $listar->fetch())
-    	{
-        	echo $res["email"].["senha"]."<br/>";
-    	}
+            $resultado = $login->fetch();
+            
+            if($resultado['senha'] == $senha)
+            {
+                return true;
+            }
+            else
+            {
+               return false;
+            }
+//            echo $email;
+            
+            
+            
         }
 
-
-    
 }
+

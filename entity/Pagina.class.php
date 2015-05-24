@@ -1,18 +1,20 @@
-<?php
 
+<?php
+require_once '../entity/Categoria.php';
+include_once '../entity/Categoria.php';
 class Pagina
 {
     private $idPagina;
     private $titulo;
-    private $categoriaIdCategoria;
+    private $idCategoria;
     
-    public function __construct($idPagina = "", $titulo = "", $categoriaIdCategoria = "")
+    public function __construct($idPagina = "", $titulo = "", $idCategoria = "")
     {
        $this->idPagina = $idPagina;
        $this->titulo = $titulo;
        
-      $categoria  = new Categoria($categoriaIdCategoria,'','');
-      $this->categoriaIdCategoria = $categoria->getIdCategoria();
+      $categoria  = new Categoria($idCategoria,'');
+      $this->idCategoria = $categoria->getIdCategoria();
     }
     function getIdPagina() {
         return $this->idPagina;
@@ -23,8 +25,8 @@ class Pagina
         return $this->titulo;
     }
 
-    function getCategoriaIdCategoria() {
-        return $this->categoriaIdCategoria;
+    function getIdCategoria() {
+        return $this->idCategoria;
     }
 
     function setIdPagina($idPagina) {
@@ -35,8 +37,8 @@ class Pagina
         $this->titulo = $titulo;
     }
 
-    function setCategoriaIdCategoria($categoriaIdCategoria) {
-        $this->categoriaIdCategoria = $categoriaIdCategoria;
+    function setIdCategoria($idCategoria) {
+        $this->idCategoria = $idCategoria;
     }
 
 

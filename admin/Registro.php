@@ -1,7 +1,8 @@
 <?php
 include_once '../configs/PDOUtil.php';
 include_once '../dao/UsuarioDao.php';
-include_once '../entity/Usuario.php';
+include_once '../entity/Usuario.class.php';
+
 
 
 if(isset($_GET["acao"]))
@@ -18,8 +19,8 @@ if(isset($_GET["acao"]))
         
 	$usuarioDao = new UsuarioDao();
 	$usuarioDao->InserirUsuario($usuario);
-        
-        echo 'Cadastro efetuado!!!';
+        session_start();
+        header("Location: LoginBootStrap.php");
 }
 //if(isset($_GET["acao"]))
 //{
@@ -47,24 +48,15 @@ if(isset($_GET["acao"]))
 </head>
 <body>
     <div id="header">
- 	<?php include("../admin/index.html"); ?>
+ 	<?php include("../admin/header.php"); ?>
 	</div>
 <div class="container">
-			<!-- freshdesignweb top bar -->
-            <div class="freshdesignweb-top">
-                <a href="../../testesDoSistema/TesteInbook.php">Atribua, Contribua e Desenvolva!</a>
-                <span class="right">
-                    <a href="LoginBootStrap.php">
-                        <strong>Login?</strong>
-                    </a>
-                </span>
-                <div class="clr"></div>
-            </div>
+			
 			<header>
 				<h1><span>Sua Pagina de registro do</span>InBook</h1>
             </header>       
       <div  class="form">
-          <form  method="post" action="TesteRegistro.php?acao=ok"> 
+          <form  method="post" action="Registro.php?acao=ok"> 
     			<p class="contact"><label for="name">Nome: </label></p> 
                         <input  name="nomepessoa" placeholder="Digite seu nome" required="" tabindex="1" type="text" autofocus=""/> 
     			 
@@ -109,7 +101,7 @@ if(isset($_GET["acao"]))
                   <option value="21">Rondonia</option>
                   <option value="22">Roraima</option>
                   <option value="24">Santa Catarina</option>
-                  <option value="26" >Sao Paulo</option
+                  <option value="26" >Sao Paulo</option>
                   <option value="25">Sergipe</option>
                   <option value="27">Tocantins</option>
 
@@ -122,11 +114,8 @@ if(isset($_GET["acao"]))
             <option value="f">Mulher</option>
             <option value="o">Outros</option>
             </select><br><br>-->
-            
-           
-           
-            <input class="buttom" name="tudocerto" id="submit" tabindex="5" value="Tudo Certo!" type="submit"> </br></br>	 
-             </form> 
+<input class="buttom" name="tudocerto" id="submit" tabindex="5" value="Tudo Certo!" type="submit">
+          </form> </br></br>
 </div>      
 </div>
 </body>

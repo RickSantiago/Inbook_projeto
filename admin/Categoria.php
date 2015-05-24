@@ -1,19 +1,17 @@
 <?php
 include_once '../configs/PDOUtil.php';
 include_once '../dao/CategoriaDao.php';
-include_once '../entity/Categoria.php';
+include_once '../entity/Categoria.class.php';
 
 if(isset($_GET["acao"]))
 {
-    $categoria = new Categoria();
-    $categoria->setNomeCategoria($_POST["nome_categoria"]);
-   
-   
+   $categoria = new Categoria();
+   $categoria->setNomeCategoria($_POST["nome_categoria"]);
    $categoriaDao = new CategoriaDao();
    $categoriaDao->InserirCategoria($categoria);
 }
 ?>
-<?php include("../admin/index.html"); ?>
+<?php include("../admin/index.php"); ?>
 <!DOCTYPE html>
 
         <html lang="pt-br">
@@ -46,4 +44,4 @@ if(isset($_GET["acao"]))
         <input type="submit" name="testeGeral" title="Geral" id="testePais" autofocus="" value="Teste Geral"></a></br></br>
   </div>
 </div>
-<?php include("../admin/Footer.php"); ?>
+

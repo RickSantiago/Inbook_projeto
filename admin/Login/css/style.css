@@ -3,6 +3,11 @@
 
 /*  */
 
+
+.branco
+{
+    background-color: #fff;
+}
 *,
 *:after,
 *:before {

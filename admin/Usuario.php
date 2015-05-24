@@ -1,7 +1,7 @@
 <?php
 include_once '../configs/PDOUtil.php';
 include_once '../dao/UsuarioDao.php';
-include_once '../entity/Usuario.php';
+include_once '../entity/Usuario.class.php';
 
 if(isset($_GET["acao"]))
 {
@@ -20,12 +20,7 @@ $usuario = new Usuario();
         
         echo 'Cadastro efetuado!!!';
 }
-if(isset($_GET["acao1"]))
-        {
-            
-             $usuarioDao   = new UsuarioDao();
-             $usuarioDao->loginUsuario();
-        }
+
 ?>
 <!DOCTYPE html>
 
@@ -82,7 +77,7 @@ if(isset($_GET["acao1"]))
                   <option value="21">Rondonia</option>
                   <option value="22">Roraima</option>
                   <option value="24">Santa Catarina</option>
-                  <option value="26" >Sao Paulo</option
+                  <option value="26" >Sao Paulo</option>
                   <option value="25">Sergipe</option>
                   <option value="27">Tocantins</option>
             </select></br></br>

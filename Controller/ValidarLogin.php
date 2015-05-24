@@ -1,31 +1,28 @@
 
 <?php
-include_once './LoginBootStrap.php';
-require_once './LoginBootStrap.php';
+session_start();
 include_once '../configs/PDOUtil.php';
 include_once '../dao/UsuarioDao.php';
-include_once '../entity/Usuario.php';
-	
 	//Captura usuário e senha passados pela função do Jquery por POST
-	
-        
-        if(isset($_GET["acao"]))
-        {
-            $usuario = new Usuario();
-            
-            $usuario->getEmail($_POST['email']);
-            $usuario->getSenha($_POST['senha']);
-        
-            $usuarioDao   = new UsuarioDao();
-            $usuarioDao->loginUsuario();
-             
-             if(senha == $senha && email == $email)
+            $email = $_POST["email"];
+            $senha = $_POST["senha"];        
+            $login = new UsuarioDao();
+            $res = $login->loginUsuario($email,$senha);                    
+             if($res)
                 {
+                        //session_start();
 			$_SESSION['email'] = $email;
-			echo "<script> document.location = 'TesteInbook.php' </script>";
+                        header("Location:../admin/Index.php");
+                    
 		}
-        }
-	
+                elseif($_SESSION['email'] == null) 
+                {
+                         header("Location:../admin/LoginBootStrap.php?acao=erro");
+                }
+                else
+                {
+                     header("Location:../admin/LoginBootStrap.php?acao=erro");
+                }	
 	//Chama função logar enviando usuário e senha
 //	logar($email,$senha);	
 //	
@@ -47,7 +44,7 @@ include_once '../entity/Usuario.php';
 //		}
 	
 
-        
+    ?>    
 
 
 
